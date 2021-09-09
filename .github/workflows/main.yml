@@ -7,6 +7,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the master "branch"
   pull_request:
     branches: [ master ]
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
   # Thisworkflow contains a single job called "build"
@@ -16,6 +17,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it .
       - uses: pullreminders/slack-action@master
         env:
+          repository: siridevo/*
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         with:
